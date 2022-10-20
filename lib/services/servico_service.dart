@@ -4,9 +4,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class ServicoService extends GetxService {
-  late ServicoProviderInterface _servicoProvider;
+  late ServicoProviderInterface servicoProvider;
+
+  ServicoService({required this.servicoProvider});
+
   Future<List<Servico>> getServicos() async {
-    Response response = await _servicoProvider.getServicos();
+    Response response = await servicoProvider.getServicos();
 
     if (response.hasError) {
       return Future.error(ErrorDescription('Erro na conexão'));

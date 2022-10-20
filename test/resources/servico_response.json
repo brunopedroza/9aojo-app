@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "nome": "Manutenção Periódica",
+        "descricao": "Manutenção realizada na casa do cliente sem troca de peças",
+        "categoria": "Geladeira"
+    },
+    {
+        "id": 2,
+        "nome": "Reparo Elétrico",
+        "descricao": "Troca do cabo de alimentação de energia danificado",
+        "categoria": "Fogão"
+    },
+    {
+        "id": 3,
+        "nome": "Instalação",
+        "descricao": "Instalação do utensílio na casa do cliente",
+        "categoria": "Máquina de Lavar"
+    },
+    {
+        "id": 4,
+        "nome": "Troca de Peça",
+        "descricao": "Substituição do motor",
+        "categoria": "Geladeira"
+    },
+    {
+        "id": 5,
+        "nome": "Reparo Elétrico",
+        "descricao": "Troca do cabo de alimentação de energia danificado",
+        "categoria": "Microondas"
+    },
+    {
+        "id": 6,
+        "nome": "Manutenção",
+        "descricao": "Substituição de filtro",
+        "categoria": "Filtro de Água"
+    }
+]
