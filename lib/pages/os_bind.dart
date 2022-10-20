@@ -1,0 +1,11 @@
+import 'package:abctechapp/controller/ordem_servico_controller.dart';
+import 'package:abctechapp/services/geolocation_service.dart';
+import 'package:get/get.dart';
+
+class OrdemServicoBind extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut<OrdemServicoController>(
+        () => OrdemServicoController(GeolocationService()));
+  }
+}
