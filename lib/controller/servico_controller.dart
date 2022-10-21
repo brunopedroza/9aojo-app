@@ -8,8 +8,8 @@ class ServicoController extends GetxController with StateMixin<List<Servico>> {
   @override
   void onInit() {
     super.onInit();
-    change([], status: RxStatus.empty());
     service = Get.find<ServicoService>();
+    getServicoList();
   }
 
   void getServicoList() {
