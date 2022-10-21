@@ -12,8 +12,9 @@ class HomePage extends GetView<ServicoController> {
         shrinkWrap: true,
         itemCount: servicolist.length,
         itemBuilder: (context, index) => ListTile(
-              title: Text(servicolist[index].nome),
-              selectedColor: Colors.blue,
+              title: Text(
+                  '${servicolist[index].categoria}  |  ${servicolist[index].nome}'),
+              selectedColor: Colors.orange,
               selected: controller.isSelected(index),
               onTap: () => controller.selectServico(index),
             ));
@@ -43,6 +44,26 @@ class HomePage extends GetView<ServicoController> {
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           )))
+                ],
+              ),
+              Row(
+                children: const [
+                  Expanded(
+                      child: Padding(
+                          padding: EdgeInsets.all(15),
+                          child: Text(
+                            'Categoria   |   Nome',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          )))
+                ],
+              ),
+              Row(
+                children: const [
+                  Expanded(
+                      child:
+                          Padding(padding: EdgeInsets.all(1), child: Divider()))
                 ],
               ),
               controller.obx((state) => renderServico(state ?? []),

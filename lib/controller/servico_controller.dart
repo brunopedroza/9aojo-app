@@ -14,6 +14,12 @@ class ServicoController extends GetxController with StateMixin<List<Servico>> {
     getServicoList();
   }
 
+  @override
+  void onReady() {
+    super.onReady();
+    servicosSelecionados = Get.arguments;
+  }
+
   void getServicoList() {
     change([], status: RxStatus.loading());
     service.getServicos().then((value) {
