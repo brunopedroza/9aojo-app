@@ -11,8 +11,12 @@ class HomePage extends GetView<ServicoController> {
     return ListView.builder(
         shrinkWrap: true,
         itemCount: servicolist.length,
-        itemBuilder: (context, index) =>
-            ListTile(title: Text(servicolist[index].nome)));
+        itemBuilder: (context, index) => ListTile(
+              title: Text(servicolist[index].nome),
+              selectedColor: Colors.blue,
+              selected: controller.isSelected(index),
+              onTap: () => controller.selectServico(index),
+            ));
   }
 
   @override
@@ -24,32 +28,34 @@ class HomePage extends GetView<ServicoController> {
       //Body
       body: Container(
         constraints: const BoxConstraints.expand(),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Row(
-              children: const [
-                Expanded(
-                    child: Text('Os serviços disponíveis são:',
-                        textAlign: TextAlign.center))
-              ],
-            ),
-            Row(
-              children: [
-                Expanded(
-                    child: TextButton(
-                  onPressed: controller.getServicoList,
-                  child: const Text('Recarregar Lista'),
-                ))
-              ],
-            ),
-            controller.obx((state) => renderServico(state ?? []),
-                onEmpty: const Text('Nenhum Serviço Encontrado'),
-                onError: (error) => Text(error.toString()),
-                onLoading: const Text('Carregando'))
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Row(
+                children: const [
+                  Expanded(
+                      child: Padding(
+                          padding: EdgeInsets.all(15),
+                          child: Text(
+                            'Os serviços disponíveis são:',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          )))
+                ],
+              ),
+              controller.obx((state) => renderServico(state ?? []),
+                  onError: (error) => Text(error.toString()),
+                  onEmpty: const Text('Nenhum Serviço Encontrado'),
+                  onLoading: const Text('Carregando')),
+            ],
+          ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () => controller.finishSelectServicos(),
+          child: const Icon(Icons.done, color: Colors.white)),
     );
   }
 }

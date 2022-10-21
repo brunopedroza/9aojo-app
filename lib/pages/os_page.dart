@@ -62,7 +62,8 @@ class OrdemServicoPage extends GetView<OrdemServicoController> {
                                 ))),
                         Ink(
                             decoration: const ShapeDecoration(
-                                shape: CircleBorder(), color: Colors.redAccent),
+                                shape: CircleBorder(),
+                                color: Colors.blueAccent),
                             child: IconButton(
                                 icon: const Icon(
                                   Icons.search,

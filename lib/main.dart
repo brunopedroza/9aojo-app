@@ -26,8 +26,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'ABC Tech App',
       theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
+          primarySwatch: Colors.green,
+          textTheme:
+              const TextTheme(headline4: TextStyle(color: Colors.yellow))),
       getPages: [
         GetPage(
             name: '/',
