@@ -3,22 +3,22 @@ import 'dart:convert';
 class OrdemServicoLocation {
   double latitude;
   double longitude;
-  DateTime localHora;
+  DateTime dataHora;
   OrdemServicoLocation({
     required this.latitude,
     required this.longitude,
-    required this.localHora,
+    required this.dataHora,
   });
 
   OrdemServicoLocation copyWith({
     double? latitude,
     double? longitude,
-    DateTime? localHora,
+    DateTime? dataHora,
   }) {
     return OrdemServicoLocation(
       latitude: latitude ?? this.latitude,
       longitude: longitude ?? this.longitude,
-      localHora: localHora ?? this.localHora,
+      dataHora: dataHora ?? this.dataHora,
     );
   }
 
@@ -26,7 +26,7 @@ class OrdemServicoLocation {
     return <String, dynamic>{
       'latitude': latitude,
       'longitude': longitude,
-      'localHora': localHora.millisecondsSinceEpoch,
+      'dataHora': dataHora.millisecondsSinceEpoch,
     };
   }
 
@@ -34,7 +34,7 @@ class OrdemServicoLocation {
     return OrdemServicoLocation(
       latitude: map['latitude'] as double,
       longitude: map['longitude'] as double,
-      localHora: DateTime.fromMillisecondsSinceEpoch(map['localHora'] as int),
+      dataHora: DateTime.fromMillisecondsSinceEpoch(map['dataHora'] as int),
     );
   }
 
@@ -45,7 +45,7 @@ class OrdemServicoLocation {
 
   @override
   String toString() =>
-      'OrdemServicoLocation(latitude: $latitude, longitude: $longitude, localHora: $localHora)';
+      'OrdemServicoLocation(latitude: $latitude, longitude: $longitude, dataHora: $dataHora)';
 
   @override
   bool operator ==(covariant OrdemServicoLocation other) {
@@ -53,10 +53,10 @@ class OrdemServicoLocation {
 
     return other.latitude == latitude &&
         other.longitude == longitude &&
-        other.localHora == localHora;
+        other.dataHora == dataHora;
   }
 
   @override
   int get hashCode =>
-      latitude.hashCode ^ longitude.hashCode ^ localHora.hashCode;
+      latitude.hashCode ^ longitude.hashCode ^ dataHora.hashCode;
 }
